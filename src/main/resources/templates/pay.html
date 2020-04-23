@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+	Thymeleaf模板引擎
+    <tr>
+        <td>姓名</td>
+        <td>timeStamp</td>
+        <td>nonceStr</td>
+        <td>packageValue</td>
+        <td>signType</td>
+        <td>paySign</td>
+    </tr>
+    <tr>
+        <td th:text="${appId}"></td>
+        <td th:text="${timeStamp}"></td>
+        <td th:text="${nonceStr}"></td>
+        <td th:text="${packageValue}"></td>
+        <td th:text="${signType}"></td>
+        <td th:text="${paySign}"></td>
+    </tr>
+</body>
+<script th:inline="javascript">
+ 	window.onload = function() {
+ 		var appId = [[${appId}]];
+ 		console.log(appId);
+ 		console.log([[${appId}]]);
+ 		WeixinJSBridge.invoke('getBrandWCPayRequest', {
+
+			"appId" : [[${appId}]], //动态获取初始化请求中返回的pay_info参数中appId值
+
+			"timeStamp" : [[${timeStamp}]], //动态获取初始化请求中返回的pay_info参数中timeStamp值
+
+			"nonceStr" : [[${nonceStr}]], //动态获取初始化请求中返回的pay_info参数中nonceStr值
+
+			"package" : [[${packageValue}]],//动态获取初始化请求中返回的pay_info参数中package值
+
+			"signType" : "MD5", //动态获取初始化请求中返回的pay_info参数中signType值
+
+			"paySign" : [[${paySign}]] //动态获取初始化请求中返回的pay_info参数中paySign值
+
+		}, function(res) {
+
+			if (res.err_msg == "get_brand_wcpay_request:ok") {
+			} else {
+				alert("失败");
+			}
+
+			// 使用以上方式判断前端返回,微信团队郑重提示：res.err_msg 将在用户支付成功后返回ok，但并不保证它绝对可靠。
+
+		}); 
+
+	} 
+</script>
+</html>
