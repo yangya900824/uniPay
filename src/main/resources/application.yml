@@ -10,15 +10,8 @@ spring:
     
 #测试商户号，商户正式上线时需更改为自己的
 pay:
-  #mch_id: 7551000001
-  #key: 9d101c97133837e13dde2d32a5054abb
-  #支付接口请求地址，无需更改
-  #req_url: https://pay.swiftpass.cn/pay/gateway
-  #支付成功异步回调通知地址，商户需改为自己的
-  #notify_url: http://xxx/jsapi_wx/testPayResult
-  #QRA691147220UV5      401560003279
-  # 
   mch_id: 7551000001
   key: 9d101c97133837e13dde2d32a5054abb
   req_url: https://qra.95516.com/pay/gateway
   notify_url: http://xxx/jsapi_wx/testPayResult
+
