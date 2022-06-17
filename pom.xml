@@ -56,7 +56,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.2.28</version>
+			<version>1.2.83</version>
 		</dependency>
 	</dependencies>
 	<!--编译插件，可以配置编译版本，因为maven默认是按照1.5进行编译的-->
